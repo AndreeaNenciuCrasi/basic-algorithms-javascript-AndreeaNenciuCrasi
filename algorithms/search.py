@@ -15,7 +15,11 @@ def linear_search(number, list):
     :return: Index of the element or None
     :rtype: integer
     """
-
+    i = 0
+    for element in list:
+        if element == number:
+            return i
+        i= i + 1
     return None
 
 
@@ -31,7 +35,16 @@ def binary_search(number, list):
     :return: Index of the element or None
     :rtype: integer
     """
-
+    right=len(list)-1
+    left = 0
+    while left < right:
+        middle=left + (right-left)//2
+        if list[middle] == number:
+            return middle
+        elif list[middle] < number:
+            left = middle + 1
+        else:
+            left = middle -1
     return None
 
 

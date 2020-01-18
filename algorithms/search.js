@@ -13,8 +13,11 @@
  * @returns {number|null} Index of the element or null
  */
 function linear_search(number, list) {
-
-
+    for (let i = 0; i < list.length; i++) {
+        if (list[i] === number) {
+            return i;
+        }
+    }
     return null;
 }
 
@@ -29,7 +32,18 @@ function linear_search(number, list) {
  * @returns {number|null} Index of the element or null
  */
 function binary_search(number, list) {
-
+    let right=list.length-1;
+    let left = 0;
+    do{
+        let middle = left + Math.floor((right-left)/2);
+        if (list[middle] === number){
+            return middle;
+        }else if (list[middle] < number){
+            left = middle + 1;
+        } else{
+            left = middle -1;
+        }
+    } while (left < right);
 
     return null;
 }
@@ -44,6 +58,7 @@ function print_result(search, index) {
     }
 
     console.log(result);
+    alert(result)
 }
 
 
